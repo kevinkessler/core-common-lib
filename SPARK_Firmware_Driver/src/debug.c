@@ -52,4 +52,15 @@ void log_print_(int level, int line, const char *func, const char *file, const c
         }
 }
 
+// KMK:  Added Debug to SWO
+#if defined (DEBUG_BUILD)
+void debug_output_ (const char *b)
+{
+	do
+	{
+		ITM_SendChar(*b++);
+	}
+	while(*b!=0);
 
+}
+#endif
